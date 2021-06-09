@@ -4,3 +4,7 @@ WIP(Working-in-Progress)
 
 ## Version
 I will update 1.16.5 to 1.17 when paper released 1.17 bukkit
+
+## Compile
+`./gradlew build` - Linux/Mac\
+`gradlew build` - Windows
