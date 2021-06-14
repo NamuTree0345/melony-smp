@@ -21,7 +21,7 @@ class MelonySmp : JavaPlugin() {
         val headRecipe = ShapedRecipe(NamespacedKey.minecraft("melony_head"), melHeadItem.clone().also { it.amount = 3 })
         headRecipe.shape(" * ", "*B*", " * ")
         headRecipe.setIngredient('*', Material.MELON)
-        headRecipe.setIngredient('B', Material.FIREWORK_ROCKET)
+        headRecipe.setIngredient('B', Material.ARROW)
         server.addRecipe(headRecipe)
 
         server.pluginManager.registerEvents(CustomEntitySpawn(), this)
