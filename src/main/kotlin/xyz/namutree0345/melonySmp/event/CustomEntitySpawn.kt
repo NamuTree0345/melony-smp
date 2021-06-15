@@ -6,6 +6,7 @@ import net.kyori.adventure.text.format.TextColor
 import net.kyori.adventure.text.format.TextDecoration
 import org.bukkit.Bukkit
 import org.bukkit.Material
+import org.bukkit.attribute.Attribute
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.entity.Skeleton
 import org.bukkit.entity.Zombie
@@ -24,11 +25,12 @@ class CustomEntitySpawn : Listener {
         if(event.entity is Zombie) {
             (event.entity as Zombie).run {
                 isCustomNameVisible = true
+                getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)?.baseValue = 0.43
                 customName(Component.text("멜로니 좀비", TextColor.color(0x8FFF7D), TextDecoration.BOLD))
                 equipment?.helmet = ItemStack(Material.PLAYER_HEAD).let {
                     it.itemMeta = (it.itemMeta as SkullMeta).let { im ->
                         // Me1ony UUID
-                        im.owningPlayer = Bukkit.getOfflinePlayer(UUID.fromString("255ca5b2-2da3-4030-a747-5c224224a611"))
+                        im.owningPlayer = Bukkit.getOfflinePlayer(Bukkit.getPlayerUniqueId("Me1ony")!!)
                         im
                     }
                     it
@@ -54,7 +56,7 @@ class CustomEntitySpawn : Listener {
                 equipment?.helmet = ItemStack(Material.PLAYER_HEAD).let {
                     it.itemMeta = (it.itemMeta as SkullMeta).let { im ->
                         // Me1ony UUID
-                        im.owningPlayer = Bukkit.getOfflinePlayer(UUID.fromString("255ca5b2-2da3-4030-a747-5c224224a611"))
+                        im.owningPlayer = Bukkit.getOfflinePlayer(Bukkit.getPlayerUniqueId("Me1ony")!!)
                         im
                     }
                     it

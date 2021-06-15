@@ -7,6 +7,7 @@ import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.Particle
 import org.bukkit.entity.EntityType
+import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.inventory.EquipmentSlot
@@ -19,15 +20,18 @@ import java.util.*
 val melHeadItem = ItemStack(Material.PLAYER_HEAD).also {
     it.itemMeta = (it.itemMeta as SkullMeta).also { im ->
         im.displayName(Component.text("멜로니 머리", TextColor.color(0x8FFF7D), TextDecoration.BOLD))
-        im.owningPlayer = Bukkit.getOfflinePlayer(UUID.fromString("255ca5b2-2da3-4030-a747-5c224224a611"))
+        im.owningPlayer = Bukkit.getOfflinePlayer(Bukkit.getPlayerUniqueId("Me1ony")!!)
     }
 }
 
 class MelHead : Listener {
 
+    @EventHandler
     fun headRightClick(event: PlayerInteractEvent) {
         if(event.action.toString().contains("RIGHT_CLICK")) {
             if(event.player.inventory.itemInMainHand.type == melHeadItem.type) {
+                event.isCancelled = true
+                event.player.inventory.itemInMainHand.subtract()
                 val armorStand = (event.player.world.spawnEntity(
                     event.player.location,
                     EntityType.ARMOR_STAND

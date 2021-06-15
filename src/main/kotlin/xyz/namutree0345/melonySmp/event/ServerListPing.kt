@@ -11,7 +11,6 @@ class ServerListPing : Listener {
 
     @EventHandler
     fun ping(event: PaperServerListPingEvent) {
-        event.setHidePlayers(true)
         event.numPlayers = 666
         event.maxPlayers = 666
         event.motd(Component.text("MELONY SMP.", NamedTextColor.GREEN, TextDecoration.ITALIC, TextDecoration.BOLD))
