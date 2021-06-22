@@ -17,9 +17,9 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT")
     compileOnly("com.github.spigradle.spigradle:kr.entree.spigradle.base.gradle.plugin:v2.2.3")
-    compileOnly(paper("1.16.5"))
+    //compileOnly(paper("1.17"))
     //compileOnly("com.comphenix.protocol:ProtocolLib:4.6.0")
 }
 
