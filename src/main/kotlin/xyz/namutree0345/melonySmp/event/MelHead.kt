@@ -55,7 +55,7 @@ class MelHead : Listener {
                     armorStand.world.spawnParticle(Particle.FLAME, armorStand.location.x, armorStand.location.y + 1, armorStand.location.z, 1)
                     for(e in armorStand.location.getNearbyLivingEntities(4.0)) {
                         if(e.type != EntityType.PLAYER) {
-                            e.damage(3.0)
+                            e.damage(10.0)
                         }
                     }
                 }, 60L, 1L)

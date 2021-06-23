@@ -1,8 +1,8 @@
 import kr.entree.spigradle.kotlin.paper
 
 plugins {
-    kotlin("jvm") version "1.4.10"
-    id("kr.entree.spigradle") version "2.2.3"
+    kotlin("jvm") version "1.5.10"
+    id("kr.entree.spigradle") version "2.2.4"
 }
 
 group = "org.example"
@@ -10,7 +10,9 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
-    maven("https://papermc.io/repo/repository/maven-public/")
+    maven {
+        url = uri("https://papermc.io/repo/repository/maven-public/")
+    }
     maven("https://jitpack.io")
     //maven("https://repo.dmulloy2.net/repository/public/")
 }
@@ -18,7 +20,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     compileOnly("io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT")
-    compileOnly("com.github.spigradle.spigradle:kr.entree.spigradle.base.gradle.plugin:v2.2.3")
+    compileOnly("com.github.spigradle.spigradle:kr.entree.spigradle.base.gradle.plugin:v2.2.4")
     //compileOnly(paper("1.17"))
     //compileOnly("com.comphenix.protocol:ProtocolLib:4.6.0")
 }

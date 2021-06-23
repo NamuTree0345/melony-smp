@@ -8,6 +8,8 @@ import xyz.namutree0345.melonySmp.event.*
 
 lateinit var plugin: JavaPlugin
 
+fun getInstance() : MelonySmp = JavaPlugin.getPlugin(MelonySmp::class.java)
+
 class MelonySmp : JavaPlugin() {
 
     // Melony SMP (Survival Multi Player)
@@ -15,7 +17,7 @@ class MelonySmp : JavaPlugin() {
     override fun onEnable() {
         plugin = this
 
-        val headRecipe = ShapedRecipe(NamespacedKey.minecraft("melony_head"), melHeadItem.clone().also { it.amount = 3 })
+        val headRecipe = ShapedRecipe(NamespacedKey.minecraft("melony_head"), melHeadItem.clone().also { it.amount = 10 })
         headRecipe.shape(" * ", "*B*", " * ")
         headRecipe.setIngredient('*', Material.MELON)
         headRecipe.setIngredient('B', Material.ARROW)
@@ -33,6 +35,7 @@ class MelonySmp : JavaPlugin() {
         server.pluginManager.registerEvents(MelonyTeleporter(), this)
         server.pluginManager.registerEvents(MelHead(), this)
         server.pluginManager.registerEvents(JoinQuitEvent(), this)
+        server.pluginManager.registerEvents(Ending(), this)
     }
 
 }
